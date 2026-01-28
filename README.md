@@ -26,7 +26,7 @@ Um projeto Next.js com autenticação robusta utilizando Better Auth, integrado 
 ### 1. Clonar o repositório
 
 ```bash
-git clone <seu-repositorio>
+git clone git@github.com:jhmartins1/nextjs-better-auth.git
 cd nextjs-better-auth
 ```
 
