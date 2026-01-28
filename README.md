@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NextJS Better Auth
 
-## Getting Started
+Um projeto Next.js com autenticação robusta utilizando Better Auth, integrado com provedores OAuth (GitHub e Google).
 
-First, run the development server:
+## 🚀 Tecnologias Utilizadas
+
+- **[Next.js](https://nextjs.org/)** - Framework React com renderização no servidor
+- **[TypeScript](https://www.typescriptlang.org/)** - Linguagem tipada para JavaScript
+- **[Better Auth](https://better-auth.com/)** - Solução de autenticação moderna e segura
+- **[Prisma](https://www.prisma.io/)** - ORM para gerenciamento de banco de dados
+- **[OAuth 2.0](https://oauth.net/2/)** - Integração com GitHub e Google
+- **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS utilitário
+- **[ESLint](https://eslint.org/)** - Linter para qualidade de código
+- **[PostCSS](https://postcss.org/)** - Ferramenta para transformar CSS
+
+## 📋 Pré-requisitos
+
+- Node.js 18+ instalado
+- npm ou yarn
+- Conta GitHub (para criar OAuth App)
+- Conta Google (para criar OAuth App)
+- Banco de dados (PostgreSQL, MySQL, SQLite, etc.)
+
+## 🔧 Instalação
+
+### 1. Clonar o repositório
+
+```bash
+git clone <seu-repositorio>
+cd nextjs-better-auth
+```
+
+### 2. Instalar dependências
+
+```bash
+npm install
+# ou
+bun install
+```
+
+### 3. Configurar variáveis de ambiente
+
+Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
+
+```env
+# Better Auth
+BETTER_AUTH_SECRET=sua_chave_secreta_gerada
+BETTER_AUTH_URL=http://localhost:3000
+
+# GitHub OAuth
+GITHUB_CLIENT_ID=seu_github_client_id
+GITHUB_CLIENT_SECRET=seu_github_client_secret
+
+# Google OAuth
+GOOGLE_CLIENT_ID=seu_google_client_id
+GOOGLE_CLIENT_SECRET=seu_google_client_secret
+
+# Database
+DATABASE_URL=sua_url_do_banco_de_dados
+```
+
+### 4. Executar o projeto
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse `http://localhost:3000` no seu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔑 Configuração do Banco de Dados
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Crie um banco de dados vazio no seu provedor de banco de dados favorito.
+2. Atualize a variável `DATABASE_URL` no arquivo `.env` com a URL de conexão do seu banco de dados.
+3. Execute as migrações do Prisma:
 
-## Learn More
+```bash
+# Executar migrações Prisma
+npx prisma migrate dev
+# ou
+npx prisma db push
+npx prisma generate
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Scripts Disponíveis
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `dev`: Inicia o servidor em modo de desenvolvimento
+- `build`: Cria uma versão otimizada para produção
+- `start`: Inicia o servidor em modo de produção
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📚 Documentação
 
-## Deploy on Vercel
+- [Documentação do Next.js](https://nextjs.org/docs)
+- [Documentação do TypeScript](https://www.typescriptlang.org/docs/)
+- [Documentação do Better Auth](https://better-auth.com/docs)
+- [Documentação do Prisma](https://www.prisma.io/docs/)
+- [Documentação do Tailwind CSS](https://tailwindcss.com/docs)
+- [Documentação do PostCSS](https://postcss.org/docs)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Estrutura do Projeto:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+├── app/                    # Rotas e páginas Next.js
+│   ├── api/               # Rotas de API
+│   ├── auth/              # Páginas de autenticação
+│   ├── components/        # Componentes reutilizáveis
+│   ├── dashboard/         # Páginas do dashboard
+│   ├── layout.tsx         # Layout principal
+│   ├── page.tsx           # Página inicial
+│   └── globals.css        # Estilos globais
+├── lib/                   # Utilitários e helpers
+│   ├── actions/           # Server actions
+│   ├── auth.ts            # Configuração de autenticação
+│   └── generated/         # Código gerado (Prisma)
+├── prisma/                # Configuração do banco de dados
+├── public/                # Arquivos estáticos
+├── .env.local             # Variáveis de ambiente (não commitar)
+├── next.config.ts         # Configuração Next.js
+├── tsconfig.json          # Configuração TypeScript
+└── package.json           # Dependências do projeto
+```
