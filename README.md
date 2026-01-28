@@ -16,7 +16,7 @@ Um projeto Next.js com autenticação robusta utilizando Better Auth, integrado 
 ## 📋 Pré-requisitos
 
 - Node.js 18+ instalado
-- npm ou yarn
+- npm ou bun
 - Conta GitHub (para criar OAuth App)
 - Conta Google (para criar OAuth App)
 - Banco de dados (PostgreSQL, MySQL, SQLite, etc.)
